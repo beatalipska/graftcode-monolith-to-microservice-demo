@@ -1,0 +1,9 @@
+{
+  "name": "architecture-evolution-app-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "hypertube-nodejs-sdk": "^3.0.2"
+  }
+}

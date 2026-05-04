@@ -1,0 +1,20 @@
+{
+  "name": "graftcode-architecture-evolution-demo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Small Graftcode alpha demo exploring monolith to microservices evolution.",
+  "scripts": {
+    "run:monolith": "./scripts/run-monolith.sh",
+    "run:distributed": "./scripts/run-distributed.sh",
+    "stop": "./scripts/stop-demo.sh",
+    "setup:remote-pricing": "./scripts/setup-remote-pricing.sh",
+    "monolith": "PRICING_MODE=local node app/src/index.js",
+    "distributed": "PRICING_MODE=remote node app/src/index.js",
+    "distributed:standin": "ALLOW_REMOTE_STANDIN=1 PRICING_MODE=remote node app/src/index.js",
+    "compare": "node app/src/compare.js",
+    "compare:standin": "ALLOW_REMOTE_STANDIN=1 node app/src/compare.js"
+  },
+  "dependencies": {
+    "hypertube-nodejs-sdk": "^3.0.2"
+  }
+}

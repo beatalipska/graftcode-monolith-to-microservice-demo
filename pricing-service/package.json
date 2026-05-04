@@ -1,0 +1,7 @@
+{
+  "name": "architecture-evolution-pricing",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "description": "Pricing module hosted through Graftcode Gateway for the architecture evolution demo."
+}
