@@ -13,7 +13,7 @@ function cloneProduct(product) {
 function CatalogModule(products, options) {
   this.products = (products || seedProducts).map(cloneProduct);
   this.executionLabel = (options && options.executionLabel) || "local";
-  console.log("[catalog] ready in " + this.executionLabel + " mode with " + this.products.length + " products");
+  console.log(`[catalog:${this.executionLabel}] ready with ${this.products.length} products`);
 }
 
 CatalogModule.prototype.getProduct = async function getProduct(id) {
@@ -21,12 +21,12 @@ CatalogModule.prototype.getProduct = async function getProduct(id) {
     return item.id === id;
   });
 
-  console.log("[catalog] (" + this.executionLabel + ") getProduct(" + id + ")");
+  console.log(`[catalog:${this.executionLabel}] getProduct(${id})`);
   return product ? cloneProduct(product) : null;
 };
 
 CatalogModule.prototype.listProducts = async function listProducts() {
-  console.log("[catalog] (" + this.executionLabel + ") listProducts()");
+  console.log(`[catalog:${this.executionLabel}] listProducts()`);
   return this.products.map(cloneProduct);
 };
 

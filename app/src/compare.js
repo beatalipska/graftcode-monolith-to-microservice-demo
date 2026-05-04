@@ -5,7 +5,7 @@ function runMode(mode, value) {
   return new Promise(function (resolve, reject) {
     console.log("");
     console.log("Switching PRICING_MODE=" + value);
-    console.log(Array(("Switching PRICING_MODE=" + value).length + 1).join("-"));
+    console.log("-".repeat(("Switching PRICING_MODE=" + value).length));
 
     var child = spawn(process.execPath, [path.join(__dirname, "index.js")], {
       stdio: "inherit",

@@ -47,15 +47,7 @@ function DistributedPricingClient(childProcess) {
 DistributedPricingClient.prototype.calculatePrice = function calculatePrice(productId, quantity, customerType) {
   var requestId = this.nextRequestId++;
 
-  console.log(
-    "[pricing-graft-standin] calculatePrice(" +
-      productId +
-      ", " +
-      quantity +
-      ", " +
-      customerType +
-      ") -> separate runtime"
-  );
+  console.log(`[pricing-graft-standin] calculatePrice(${productId}, ${quantity}, ${customerType}) -> separate runtime`);
 
   return new Promise(
     function (resolve, reject) {

@@ -27,7 +27,7 @@ async function runScenario(mode, createApp) {
   try {
     console.log("");
     console.log("Mode: " + mode);
-    console.log(Array(("Mode: " + mode).length + 1).join("="));
+    console.log("=".repeat(("Mode: " + mode).length));
 
     var products = await app.catalog.listProducts();
 

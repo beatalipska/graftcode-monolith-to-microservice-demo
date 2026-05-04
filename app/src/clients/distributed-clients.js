@@ -5,8 +5,8 @@ var getGraftConfig = require("./graft-pricing-client").getGraftConfig;
 var createStandinDistributedApp = require("./remote-pricing-standin").createStandinDistributedApp;
 
 async function createDistributedApp() {
-  console.log("[app] wiring remote pricing mode from PRICING_MODE=remote");
-  console.log("[app] current GRAFT_CONFIG: " + (process.env.GRAFT_CONFIG || getGraftConfig()));
+  console.log("[app] PRICING_MODE=remote -> wiring pricing as remote Graft client");
+  console.log(`[app] GRAFT_CONFIG: ${process.env.GRAFT_CONFIG || getGraftConfig()}`);
 
   if (process.env.ALLOW_REMOTE_STANDIN === "1") {
     return createStandinDistributedApp();

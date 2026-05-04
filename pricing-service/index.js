@@ -1,6 +1,11 @@
 var PricingModule = require("./app-src/pricing").PricingModule;
 
 class PricingService {
+  /**
+   * @param {string} productId
+   * @param {number} quantity
+   * @param {string} customerType
+   */
   static calculatePrice(productId, quantity, customerType) {
     if (!PricingService.moduleInstance) {
       PricingService.moduleInstance = new PricingModule(null, {

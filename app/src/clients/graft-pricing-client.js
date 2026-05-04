@@ -46,16 +46,8 @@ function createGraftPricingClient() {
 
   return {
     calculatePrice: function calculatePrice(productId, quantity, customerType) {
-      console.log(
-        "[pricing-graft] calculatePrice(" +
-          productId +
-          ", " +
-          quantity +
-          ", " +
-          customerType +
-          ") -> " +
-          (config.indexOf("host=inMemory") >= 0 ? "in-process via Graft" : "remote runtime via Graft")
-      );
+      var destination = config.indexOf("host=inMemory") >= 0 ? "in-process via Graft" : "remote runtime via Graft";
+      console.log(`[pricing-graft] calculatePrice(${productId}, ${quantity}, ${customerType}) -> ${destination}`);
 
       return PricingService.calculatePrice(productId, quantity, customerType);
     },

@@ -23,6 +23,7 @@ function getOrders() {
 }
 
 class CatalogService {
+  /** @param {string} id */
   static getProduct(id) {
     return catalog.getProduct(id);
   }
@@ -33,6 +34,11 @@ class CatalogService {
 }
 
 class OrdersService {
+  /**
+   * @param {string} productId
+   * @param {number} quantity
+   * @param {string} customerType
+   */
   static createOrder(productId, quantity, customerType) {
     return getOrders().createOrder(productId, quantity, customerType);
   }

@@ -3,7 +3,8 @@ FROM node:24
 WORKDIR /usr/app
 
 COPY ./pricing-service /usr/app/
-COPY ./app/src /usr/app/app-src/
+COPY ./app/src/seed-products.js /usr/app/app-src/seed-products.js
+COPY ./app/src/pricing.js /usr/app/app-src/pricing.js
 
 ARG TARGETARCH
 

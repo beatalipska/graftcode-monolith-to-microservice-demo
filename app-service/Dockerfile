@@ -3,14 +3,19 @@ FROM node:24
 WORKDIR /usr/app
 
 COPY ./app-service /usr/app/
-COPY ./app/src /usr/app/app-src/
+COPY ./app/src/seed-products.js /usr/app/app-src/seed-products.js
+COPY ./app/src/catalog.js /usr/app/app-src/catalog.js
+COPY ./app/src/orders.js /usr/app/app-src/orders.js
+COPY ./app/src/clients/graft-pricing-client.js /usr/app/app-src/clients/graft-pricing-client.js
+
+ARG TARGETARCH
 
 RUN apt-get update \
  && apt-get install -y wget \
- && case "amd64" in \
+ && case "${TARGETARCH}" in \
       "arm64") GG_ARCH="arm64" ;; \
       "amd64") GG_ARCH="amd64" ;; \
-      *) echo "Unsupported architecture: amd64" && exit 1 ;; \
+      *) echo "Unsupported architecture: ${TARGETARCH}" && exit 1 ;; \
     esac \
  && wget -O /usr/app/gg.deb "https://github.com/grft-dev/graftcode-gateway/releases/latest/download/gg_linux_${GG_ARCH}.deb" \
  && dpkg -i /usr/app/gg.deb \

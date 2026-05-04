@@ -6,16 +6,16 @@ var createGraftPricingClient = require("./graft-pricing-client").createGraftPric
 function tryCreateLocalGraftPricingClient() {
   try {
     var pricing = createGraftPricingClient();
-    console.log("[app] generated pricing Graft detected, using host=inMemory for local mode");
+    console.log("[app] generated Graft detected -> using host=inMemory");
     return pricing;
   } catch (error) {
-    console.log("[app] generated pricing Graft not available for local mode yet, using direct module");
+    console.log("[app] generated Graft not available -> falling back to direct module");
     return null;
   }
 }
 
 async function createMonolithApp() {
-  console.log("[app] wiring local pricing mode from PRICING_MODE=local");
+  console.log("[app] PRICING_MODE=local -> wiring pricing as local module");
 
   var catalog = new CatalogModule(null, {
     executionLabel: "monolith process"

@@ -20,7 +20,7 @@ function PricingModule(products, options) {
     }.bind(this)
   );
 
-  console.log("[pricing] ready in " + this.executionLabel + " mode");
+  console.log(`[pricing:${this.executionLabel}] ready`);
 }
 
 PricingModule.prototype.calculatePrice = async function calculatePrice(productId, quantity, customerType) {
@@ -37,20 +37,7 @@ PricingModule.prototype.calculatePrice = async function calculatePrice(productId
   var discountAmount = roundMoney(subtotal * (discountPercent / 100));
   var total = roundMoney(subtotal - discountAmount);
 
-  console.log(
-    "[pricing] (" +
-      this.executionLabel +
-      ") calculatePrice(" +
-      productId +
-      ", " +
-      quantity +
-      ", " +
-      customerType +
-      ") -> " +
-      product.currency +
-      " " +
-      total
-  );
+  console.log(`[pricing:${this.executionLabel}] calculatePrice(${productId}, ${quantity}, ${customerType}) -> ${product.currency} ${total}`);
 
   return {
     productId: product.id,

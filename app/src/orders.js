@@ -3,21 +3,11 @@ function OrdersModule(catalog, pricing, options) {
   this.pricing = pricing;
   this.executionLabel = (options && options.executionLabel) || "app";
   this.orderCounter = 1;
-  console.log("[orders] ready in " + this.executionLabel + " mode");
+  console.log(`[orders:${this.executionLabel}] ready`);
 }
 
 OrdersModule.prototype.createOrder = async function createOrder(productId, quantity, customerType) {
-  console.log(
-    "[orders] (" +
-      this.executionLabel +
-      ") createOrder(" +
-      productId +
-      ", " +
-      quantity +
-      ", " +
-      customerType +
-      ")"
-  );
+  console.log(`[orders:${this.executionLabel}] createOrder(${productId}, ${quantity}, ${customerType})`);
 
   if (quantity <= 0) {
     throw new Error("quantity must be greater than zero");
