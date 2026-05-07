@@ -40,7 +40,10 @@ class OrdersService {
    * @param {string} customerType
    */
   static createOrder(productId, quantity, customerType) {
-    return getOrders().createOrder(productId, quantity, customerType);
+    return getOrders().createOrder(productId, quantity, customerType).then(function (result) {
+      console.log("[OrdersService] result:\n" + JSON.stringify(result, null, 2));
+      return result;
+    });
   }
 }
 

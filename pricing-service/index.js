@@ -13,7 +13,10 @@ class PricingService {
       });
     }
 
-    return PricingService.moduleInstance.calculatePrice(productId, quantity, customerType);
+    return PricingService.moduleInstance.calculatePrice(productId, quantity, customerType).then(function (result) {
+      console.log("[PricingService] result:\n" + JSON.stringify(result, null, 2));
+      return result;
+    });
   }
 }
 

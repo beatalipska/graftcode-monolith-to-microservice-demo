@@ -30,8 +30,8 @@ docker run -d \
   --platform linux/amd64 \
   --network "$NETWORK_NAME" \
   --name "$CONTAINER_NAME" \
-  -p "$HOST_WS_PORT:90" \
-  -p "$HOST_VISION_PORT:91" \
+  -p "$HOST_WS_PORT:$HOST_WS_PORT" \
+  -p "$HOST_VISION_PORT:$HOST_VISION_PORT" \
   "$IMAGE_NAME" >/dev/null
 
 echo "[setup] waiting for graft install command"

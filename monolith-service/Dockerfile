@@ -23,7 +23,7 @@ RUN apt-get update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-EXPOSE 80
-EXPOSE 81
+EXPOSE 18080
+EXPOSE 18081
 
-CMD ["gg", "./package.json"]
+CMD ["gg", "./package.json", "--httpPort", "18081", "--port", "18080"]

@@ -6,6 +6,7 @@
   "scripts": {
     "run:monolith": "./scripts/run-monolith.sh",
     "run:distributed": "./scripts/run-distributed.sh",
+    "run:distributed:standin": "./scripts/setup-remote-pricing.sh || true && npm run distributed:standin",
     "stop": "./scripts/stop-demo.sh",
     "setup:remote-pricing": "./scripts/setup-remote-pricing.sh",
     "monolith": "PRICING_MODE=local node app/src/index.js",

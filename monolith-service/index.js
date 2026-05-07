@@ -29,7 +29,10 @@ class PricingService {
     if (!PricingService.moduleInstance) {
       PricingService.moduleInstance = new PricingModule(null, { executionLabel: "monolith gateway runtime" });
     }
-    return PricingService.moduleInstance.calculatePrice(productId, quantity, customerType);
+    return PricingService.moduleInstance.calculatePrice(productId, quantity, customerType).then(function (result) {
+      console.log("[PricingService] result:\n" + JSON.stringify(result, null, 2));
+      return result;
+    });
   }
 }
 
@@ -53,7 +56,10 @@ class OrdersService {
         { executionLabel: "monolith gateway runtime" }
       );
     }
-    return OrdersService.moduleInstance.createOrder(productId, quantity, customerType);
+    return OrdersService.moduleInstance.createOrder(productId, quantity, customerType).then(function (result) {
+      console.log("[OrdersService] result:\n" + JSON.stringify(result, null, 2));
+      return result;
+    });
   }
 }
 

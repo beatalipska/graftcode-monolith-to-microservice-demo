@@ -21,8 +21,8 @@ echo "[monolith] starting monolith gateway"
 docker run -d \
   --platform linux/amd64 \
   --name "$CONTAINER_NAME" \
-  -p "$HOST_WS_PORT:80" \
-  -p "$HOST_VISION_PORT:81" \
+  -p "$HOST_WS_PORT:$HOST_WS_PORT" \
+  -p "$HOST_VISION_PORT:$HOST_VISION_PORT" \
   "$IMAGE_NAME" >/dev/null
 
 echo "[monolith] monolith gateway is running"

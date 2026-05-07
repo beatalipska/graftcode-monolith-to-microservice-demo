@@ -21,7 +21,7 @@ RUN apt-get update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-EXPOSE 90
-EXPOSE 91
+EXPOSE 19090
+EXPOSE 19091
 
-CMD ["gg", "./package.json", "--httpPort", "91", "--port", "90"]
+CMD ["gg", "./package.json", "--httpPort", "19091", "--port", "19090"]

@@ -1,5 +1,5 @@
 function getRemoteHost() {
-  return process.env.PRICING_REMOTE_HOST || "ws://localhost:19090/ws";
+  return process.env.PRICING_REMOTE_HOST || "ws://localhost:19090/ws"; // matches pricing-service --port 19090
 }
 
 function getGraftConfig() {
