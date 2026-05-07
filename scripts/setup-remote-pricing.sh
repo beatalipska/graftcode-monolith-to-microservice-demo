@@ -68,6 +68,8 @@ if ! (cd "$APP_SERVICE_DIR" && eval "$INSTALL_CMD"); then
   echo "[setup] We have seen ETARGET here in local alpha, including on the older js-energy-platform sample."
   echo "[setup] If you just want to inspect the architecture flow for now, use:"
   echo "[setup]   npm run distributed:standin"
+  echo ""
+  echo "[setup] pricing vision ui: http://localhost:$HOST_VISION_PORT/GV"
   exit 1
 fi
 
